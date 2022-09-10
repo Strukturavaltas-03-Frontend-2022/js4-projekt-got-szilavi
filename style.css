@@ -168,21 +168,15 @@ aside {
   width: 80%;
 }
 
-.disabled {
-  display: none;
+.hidden {
+  visibility: hidden;
 }
-
-/* A képek marhára de ugorjanak egyre kevesebb sorban, ha kisebb a képernyő*/
-
-/*ABC sorrend kellene még a kariknál*/
 
 /*egy Jorah Mormonth kép hiányzik, az ilyenekre fel kéne készülni*/
 
 /*több karakternek nincsen háza, erre is fel kéne készülni*/
 
 /*még nem lehet a kis nyíllal eltüntetni a jobb oldali sávot*/
-
-/*oldal betöltésénél csúnya az a bigyó ott a kép helyén*/
 
 /*a karakterek nem csilivilik, ha rámegyek, illetve ha ki van jelölve*/
 

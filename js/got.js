@@ -4,8 +4,13 @@ fetch("./json/got.json")
   .then((response) => response.json())
   .then((charactersAllData) => {
     for (let i = 0; i < charactersAllData.length; i++) {
+      charactersAllData.sort((a, b) => {
+        let nameA = a.name;
+        let nameB = b.name;
+        return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
+      });
       const character = `     <div class="character">
-       <img class=character__image src="${charactersAllData[i].portrait}" />
+       <img class=character__image src="${charactersAllData[i].portrait}" alt="${charactersAllData[i].name}" />
        <div class="character__name">${charactersAllData[i].name}</div>
        </div>`;
       if (!charactersAllData[i].dead) {
@@ -15,6 +20,8 @@ fetch("./json/got.json")
   });
 
 (async function clickCharacter() {
+  const container = document.querySelector(".characterinfo__container");
+  container.classList.remove("hidden");
   let response = await fetch("./json/got.json").then((response) =>
     response.json()
   );
@@ -30,6 +37,7 @@ fetch("./json/got.json")
     for (let i = 0; i < characters.length; i++) {
       if (characterNameOnBoard === characters[i].name) {
         showCharacter(characters[i]);
+        showCharacterImage();
       }
     }
   }
@@ -42,6 +50,7 @@ function showCharacter(character) {
     ".characterinfo__container__info"
   );
   picture.src = character.picture;
+  picture.alt = character.name;
   name.textContent = character.name;
   characterInfo.textContent = character.bio;
 
@@ -68,6 +77,21 @@ async function searchCaracter() {
     }
   });
 }
+
+function showCharacterImage() {
+  const characterImage = document.querySelector(
+    ".characterinfo__container__img"
+  );
+  console.log(characterImage.alt);
+  if (characterImage.alt === "") {
+    console.log(characterImage.alt);
+    characterImage.classList.add("hidden");
+  } else {
+    characterImage.classList.remove("hidden");
+  }
+}
+
+showCharacterImage();
 
 //function resetInfo() {
 //  let charContainer = document.querySelector(".characterinfo__container");
