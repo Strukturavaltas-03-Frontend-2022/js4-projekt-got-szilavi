@@ -49,6 +49,7 @@ body {
   font-size: 0.8em;
   align-self: center;
   justify-self: center;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -68,6 +69,7 @@ aside {
   color: #ffffff;
   font-size: 1.2em;
   letter-spacing: 0.3em;
+  text-align: center;
 }
 
 .search__container__bottom {
@@ -100,7 +102,8 @@ aside {
   margin-right: -0.21em;
 }
 
-.fa-angle-right {
+.fa-angle-right,
+.fa-angle-left {
   border: 2px solid rgb(255, 255, 255);
   padding: 0.5em 0.7em;
   cursor: pointer;
@@ -119,6 +122,7 @@ aside {
   margin-right: 1em;
 }
 
+.shadow,
 .character__image:hover {
   box-shadow: 0 0 2em rgb(33, 33, 33);
 }
@@ -172,14 +176,180 @@ aside {
   visibility: hidden;
 }
 
-/*egy Jorah Mormonth kép hiányzik, az ilyenekre fel kéne készülni*/
+@media only screen and (max-width: 1700px) {
+  .searcher {
+    border-radius: 0 4px 4px 0;
+    padding: 0;
+    font-size: 1rem;
+    border: 2px solid #ffffff;
+    outline: none;
+  }
+  .fa-angle-right,
+  .fa-angle-left {
+    border: 2px solid rgb(255, 255, 255);
+    padding: 0.5em 0.7em;
+    cursor: pointer;
+  }
+}
 
-/*több karakternek nincsen háza, erre is fel kéne készülni*/
+@media only screen and (max-width: 1300px) {
+  .characterinfo__container__nameAndHouse {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-content: stretch;
+    align-items: center;
+    width: 20vh;
+  }
+}
 
-/*még nem lehet a kis nyíllal eltüntetni a jobb oldali sávot*/
+@media only screen and (max-width: 1150px) {
+  .tabble__characters {
+    grid-template-columns: repeat(6, auto);
+    grid-template-rows: repeat(8, auto);
+  }
+  .searcher {
+    border-radius: 0 4px 4px 0;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8rem;
+    border: 2px solid #ffffff;
+    outline: none;
+  }
 
-/*a karakterek nem csilivilik, ha rámegyek, illetve ha ki van jelölve*/
+  .fa-angle-right,
+  .fa-angle-left {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
 
-/*még nem írja ki a kereső, ha nincs meg a név, valószínű ott egy setTimeouttal a végén fogok talán valamit csinálni, a csütörtöki konzi Józsival segíthet*/
+  body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 200vh;
+  }
 
-/*még nagyon nem responsive a megjelenés*/
+  .table {
+    height: 200vh;
+  }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
+    background-color: rgb(57, 57, 58);
+    width: 100vw;
+    height: 150vh;
+  }
+
+  .fa-angle-right,
+  .fa-angle-left {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .tabble__characters {
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(10, auto);
+  }
+
+  aside {
+    display: none;
+  }
+
+  .table {
+    height: 300vh;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 300vh;
+  }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
+    background-color: rgb(57, 57, 58);
+    width: 100vw;
+    height: 150vh;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .tabble__characters {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(12, auto);
+  }
+
+  .table {
+    height: 500vh;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 400vh;
+  }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
+    background-color: rgb(57, 57, 58);
+    width: 100vw;
+    height: 150vh;
+}
+
+@media only screen and (max-width: 250px) {
+  .tabble__characters {
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(13, auto);
+  }
+
+  .table {
+    height: 800vh;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 800vh;
+  }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
+    background-color: rgb(57, 57, 58);
+    width: 100vw;
+    height: 150vh;
+}
+}
